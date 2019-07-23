@@ -2,12 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {mount, unmount} from 'enzyme'
 import CommentBox from 'components/CommentBox'
+import Root from 'Root'
 
 let wrapped;
 
 beforeEach(() => {
 
-	wrapped = mount(<CommentBox />)
+	wrapped = mount(<Root><CommentBox /></Root>)
 
 })
 
@@ -16,10 +17,10 @@ afterEach(() => {
 })
 
 
-it('has textarea and button', () => {
+it('has textarea and two button', () => {
 
 	expect(wrapped.find('textarea').length).toEqual(1)
-	expect(wrapped.find('button').length).toEqual(1)
+	expect(wrapped.find('button').length).toEqual(2)
 
 })
 
